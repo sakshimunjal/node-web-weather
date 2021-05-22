@@ -22,8 +22,8 @@ weatherForm.addEventListener('submit',(event)=>{
     fetch(`/weather?lat=${lat.value}&long=${long.value}`).then((response)=>{
         console.log("***** " ,response)
     response.json().then((data)=>{
-        if(data.error){
-            locationP.textContent = data.error   
+        if(data.err){
+            locationP.textContent = data.err  
             forecastP.textContent = ""
         }
         else{
