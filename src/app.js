@@ -13,6 +13,7 @@ const partialsPath = path.join(__dirname, "./templates/partials")
 
 //create express app
 const app = express();
+const PORT = process.env.PORT || 3000
 
 //customize express app
 app.set('view engine','hbs'); //to tell express that we are using handlebars
@@ -109,6 +110,6 @@ app.get('*',(req,res)=>{
     })
 })
 
-app.listen(3000, ()=>{
-    console.log("started")
+app.listen(PORT, ()=>{
+    console.log("started at " + PORT)
 })
