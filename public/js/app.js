@@ -1,8 +1,8 @@
-fetch('http://puzzle.mead.io/puzzle').then((res)=>{
-    res.json().then((data)=>{
-        console.log(data.puzzle)
-    })
-})
+// fetch('http://puzzle.mead.io/puzzle').then((res)=>{
+//     res.json().then((data)=>{
+//         console.log(data.puzzle)
+//     })
+// })
 
 const weatherForm = document.querySelector('form');
 const lat = document.querySelector('#lat')
@@ -19,7 +19,7 @@ weatherForm.addEventListener('submit',(event)=>{
     forecastP.textContent = "..."
 
     // fetch(`http://api.weatherstack.com/current?access_key=a419b2f0d0970f90f4faf933b02df592&query=${lat.value},${long.value}`).then((response)=>{
-    fetch(`http://api.weatherstack.com/current?access_key=a419b2f0d0970f90f4faf933b02df592&query=${lat.value},${long.value}`).then((response)=>{
+    fetch(`/weather?lat=${lat.value}&long=${long.value}`).then((response)=>{
     response.json().then((data)=>{
         if(data.error){
             locationP.textContent = data.error   
