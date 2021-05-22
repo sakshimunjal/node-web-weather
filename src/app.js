@@ -66,15 +66,13 @@ app.get('/weather', async(req,res)=>{
     let response = await getWeather(req.query.lat, req.query.long);
 
     if(response.err){
-        return res.render('404',{
-            title: "Error!",
-            errMsg : response.err
+        return res.send({
+            err : response.err
         })
     }
-    res.render('weather',{
+    res.send({
         location: response.location,
-        msg : response.msg,
-        name: "Sakshi Munjal"
+        msg : response.msg
     })
 })
 

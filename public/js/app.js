@@ -20,14 +20,15 @@ weatherForm.addEventListener('submit',(event)=>{
 
     // fetch(`http://api.weatherstack.com/current?access_key=a419b2f0d0970f90f4faf933b02df592&query=${lat.value},${long.value}`).then((response)=>{
     fetch(`/weather?lat=${lat.value}&long=${long.value}`).then((response)=>{
+        console.log("***** " ,response)
     response.json().then((data)=>{
         if(data.error){
             locationP.textContent = data.error   
             forecastP.textContent = ""
         }
         else{
-            locationP.textContent = data.location.name + ", " + data.location.country
-            forecastP.textContent = data.current.weather_descriptions[0] + " Temp = " + data.current.temperature
+            locationP.textContent = data.location 
+            forecastP.textContent = data.msg
         }
     })
 })

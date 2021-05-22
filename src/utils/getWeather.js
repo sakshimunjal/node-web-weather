@@ -6,6 +6,7 @@ var getWeather = (lat,long)=> {
         // let url = `/weather?lat=${lat}&long=${long}`
         postman({url: url, json: true},(err, response, body)=>{
             console.log("------------ ", body)
+            console.log("------------ ", body.error)
 
             if(body.error){
                 console.log("failed")
@@ -14,6 +15,7 @@ var getWeather = (lat,long)=> {
                 })
             }
             else{
+                console.log(body.current.temperature)
                 resolve({
                     msg: `It is currently ${body.current.temperature} degrees out. There is ${body.current.weather_descriptions[0]}`,
                     location: `${body.location.name}, ${body.location.country}`
