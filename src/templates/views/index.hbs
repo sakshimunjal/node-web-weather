@@ -8,11 +8,11 @@
     <body>
         <div class="main-content">
             {{>header}}
-            <p> Some text</p>
+            <p> Type in the coordinates below and hit search</p>
 
             <form>
-                <input type="number" step=".0000001" id="lat">
-                <input type="number" step=".0000001" id="long">
+                <input type="number" step=".0000001" id="lat" placeholder="Latitude">
+                <input type="number" step=".0000001" id="long" placeholder="Longitude">
                 <button>Search</button>
             </form>
             <p id="location"></p>
