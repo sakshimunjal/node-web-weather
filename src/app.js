@@ -63,6 +63,7 @@ app.get('/weather', async(req,res)=>{
     //     lat: req.query.lat,
     //     long: req.query.long
     // })
+    console.log(req.query.lat, req.query.long)
     let response = await getWeather(req.query.lat, req.query.long);
 
     if(response.err){
